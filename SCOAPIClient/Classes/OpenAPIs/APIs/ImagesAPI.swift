@@ -79,9 +79,9 @@ open class ImagesAPI {
     /**
      - GET /images/{id}/
      - parameter id: (path) A unique integer value identifying this image. 
-     - returns: RequestBuilder<Any> 
+     - returns: RequestBuilder<Image>
      */
-    open class func imagesReadWithRequestBuilder(id: Int) -> RequestBuilder<Any> {
+    open class func imagesReadWithRequestBuilder(id: Int) -> RequestBuilder<Image> {
         var path = "/images/{id}/"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -91,7 +91,7 @@ open class ImagesAPI {
         
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<Any>.Type = SCOAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<Image>.Type = SCOAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }

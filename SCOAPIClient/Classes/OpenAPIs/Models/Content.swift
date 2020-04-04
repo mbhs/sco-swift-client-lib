@@ -7,32 +7,64 @@
 
 import Foundation
 
-public struct Content: Codable {
-
+public class Content: Decodable {
     public var url: String?
-    /** A short biography, often including likes and dislikes, accomplishments, etc. Should be several sentences minimum. */
-    public var biography: String
-    public var avatar: String?
-    public var position: String
-    public var graduationYear: Int?
-    public var user: String
+    public var title: String
+    public var description: String?
+    public var tags: [Tag]
+    public var created: Date
+    public var modified: Date
+    public var authors: [User]
+    public var guestAuthors: String
+    public var section: Section
+    public var views: Int
+    public var embedOnly: Bool
+    public var linked: [Content]
+    public var descriptor: String
+    public var shareUrl: String
 
-    public init(url: String? = nil, biography: String, avatar: String? = nil, position: String, graduationYear: Int? = nil, user: String) {
-        self.url = url
-        self.biography = biography
-        self.avatar = avatar
-        self.position = position
-        self.graduationYear = graduationYear
-        self.user = user
-    }
+//    public init(url: String? = nil, title: String, description: String? = nil, tags: [Tag], created: Date, modified: Date, user: String) {
+//        self.url = url
+//        self.title = title
+//        self.description = description
+//        self.tags = tags
+//        self.created = created
+//        self.modified = modified
+//        self.user = user
+//    }
+//    public init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        let id = try container.decode(String.self, forKey: .id)
+//        let nestedContainer = try container.nestedContainer(keyedBy: ArtistKeys.self, forKey: .data)
+//        let type = try nestedContainer.decode(ArtistType.self, forKey: .type)
+//        switch type {
+//            case .individual:
+//                let individualData = try container.decode(IndividualArtist.self, forKey: .data)
+//                self = .individual(id, individualData)
+//            case .band:
+//                let bandData = try container.decode(BandArtist.self, forKey: .data)
+//                self = .band(id, bandData)
+//        }
+//    }
 
-    public enum CodingKeys: String, CodingKey, CaseIterable {
+    private enum CodingKeys: String, CodingKey, CaseIterable {
         case url
-        case biography
-        case avatar
-        case position
-        case graduationYear = "graduation_year"
-        case user
+        case title
+        case description
+        case tags
+        case created
+        case modified
+        case authors
+        case guestAuthors = "guest_authors"
+        case section
+        case views
+        case embedOnly = "embed_only"
+        case linked
+        case descriptor
+        case shareUrl = "share_url"
     }
-
 }
+
+
+
+

@@ -79,9 +79,9 @@ open class StoriesAPI {
     /**
      - GET /stories/{id}/
      - parameter id: (path) A unique integer value identifying this story. 
-     - returns: RequestBuilder<Any> 
+     - returns: RequestBuilder<Story>
      */
-    open class func storiesReadWithRequestBuilder(id: Int) -> RequestBuilder<Any> {
+    open class func storiesReadWithRequestBuilder(id: Int) -> RequestBuilder<Story> {
         var path = "/stories/{id}/"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -91,7 +91,7 @@ open class StoriesAPI {
         
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<Any>.Type = SCOAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<Story>.Type = SCOAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }

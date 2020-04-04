@@ -79,9 +79,9 @@ open class ContentAPI {
     /**
      - GET /content/{id}/
      - parameter id: (path) A unique integer value identifying this content. 
-     - returns: RequestBuilder<Any> 
+     - returns: RequestBuilder<Content>
      */
-    open class func contentReadWithRequestBuilder(id: Int) -> RequestBuilder<Any> {
+    open class func contentReadWithRequestBuilder(id: Int) -> RequestBuilder<Content> {
         var path = "/content/{id}/"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -91,7 +91,7 @@ open class ContentAPI {
         
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<Any>.Type = SCOAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<Content>.Type = SCOAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }

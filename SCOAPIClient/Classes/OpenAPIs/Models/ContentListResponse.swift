@@ -8,18 +8,58 @@
 import Foundation
 
 
-public struct ContentListResponse: Codable {
+
+public struct ContentListResponse: Decodable {
 
     public var count: Int
     public var next: String?
     public var previous: String?
-    public var results: [Any]
+    public var results: [Content]
+    
+    enum ContentListKey: CodingKey {
+        case count
+        case next
+        case previous
+        case results
+    }
+    
+    enum ContentTypeKey: CodingKey {
+        case descriptor
+    }
+    
+    enum ContentTypes: String, Decodable {
+        case story = "Story"
+        case image = "Image"
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: ContentListKey.self)
+        self.count = try container.decode(Int.self, forKey: .count)
+        self.next = try container.decode(String?.self, forKey: .next)
+        self.previous = try container.decode(String?.self, forKey: .previous)
+        var contentListForType = try container.nestedUnkeyedContainer(forKey: ContentListKey.results)
+        var results = [Content]()
 
-    public init(count: Int, next: String?, previous: String?, results: [Any]) {
-        self.count = count
-        self.next = next
-        self.previous = previous
+        var contentList = contentListForType
+        while(!contentListForType.isAtEnd) {
+            let content = try contentListForType.nestedContainer(keyedBy: ContentTypeKey.self)
+            let type = try content.decode(ContentTypes.self, forKey: ContentTypeKey.descriptor)
+            switch type {
+            case .story:
+                print("found story")
+                results.append(try contentList.decode(Story.self))
+            case .image:
+                print("found image")
+                results.append(try contentList.decode(Image.self))
+            }
+        }
         self.results = results
     }
+//    public init(count: Int, next: String?, previous: String?, results: [Content]) {
+//        self.count = count
+//        self.next = next
+//        self.previous = previous
+//        self.results = results
+//    }
 
 }
