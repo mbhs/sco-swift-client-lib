@@ -13,7 +13,7 @@ public struct Tag: Codable {
     public var url: String?
     public var name: String
 
-    public init(url: String?, name: String) {
+    public init(url: String? = nil, name: String) {
         self.url = url
         self.name = name
     }

@@ -15,7 +15,7 @@ public struct Section: Codable {
     public var title: String
     public var subsections: [Section]
 
-    public init(url: String?, parent: String?, title: String, subsections: [Any]) {
+    public init(url: String? = nil, parent: String? = nil, title: String, subsections: [Section] = []) {
         self.url = url
         self.parent = parent
         self.title = title

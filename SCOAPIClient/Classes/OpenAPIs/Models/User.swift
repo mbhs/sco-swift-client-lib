@@ -14,7 +14,7 @@ public struct User: Codable {
     public var name: String
     public var profile: Profile
 
-    public init(url: String?, name: String, profile: Profile) {
+    public init(url: String? = nil, name: String, profile: Profile) {
         self.url = url
         self.name = name
         self.profile = profile
