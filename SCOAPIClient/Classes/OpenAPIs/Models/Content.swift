@@ -16,7 +16,7 @@ public class Content: Decodable {
     public var modified: Date
     public var authors: [User]
     public var guestAuthors: String
-    public var section: Section
+    public var section: Section?
     public var views: Int
     public var embedOnly: Bool
     public var linked: [Int]
