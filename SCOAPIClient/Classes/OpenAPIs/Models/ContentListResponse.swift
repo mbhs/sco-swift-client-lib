@@ -53,6 +53,7 @@ public struct ContentListResponse: Decodable {
                 results.append(try contentList.decode(Image.self))
             }
         }
+        print("Results \(results)")
         self.results = results
     }
 //    public init(count: Int, next: String?, previous: String?, results: [Content]) {
