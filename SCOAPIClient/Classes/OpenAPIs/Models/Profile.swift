@@ -10,7 +10,7 @@ import Foundation
 
 public struct Profile: Codable {
 
-    public var url: String?
+    public var url: String
     /** A short biography, often including likes and dislikes, accomplishments, etc. Should be several sentences minimum. */
     public var biography: String
     public var avatar: String?
@@ -18,7 +18,7 @@ public struct Profile: Codable {
     public var graduationYear: Int?
     public var user: String
 
-    public init(url: String?, biography: String, avatar: String?, position: String, graduationYear: Int?, user: String) {
+    public init(url: String, biography: String, avatar: String?, position: String, graduationYear: Int?, user: String) {
         self.url = url
         self.biography = biography
         self.avatar = avatar

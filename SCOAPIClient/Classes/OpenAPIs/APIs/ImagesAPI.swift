@@ -20,7 +20,7 @@ open class ImagesAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func imagesList(section: String? = nil, tags: String? = nil, authors: String? = nil, limit: Int? = nil, offset: Int? = nil, apiResponseQueue: DispatchQueue = SCOAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InlineResponse200?,_ error: Error?) -> Void)) {
+    open class func imagesList(section: String? = nil, tags: String? = nil, authors: String? = nil, limit: Int? = nil, offset: Int? = nil, apiResponseQueue: DispatchQueue = SCOAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ContentListResponse?,_ error: Error?) -> Void)) {
         imagesListWithRequestBuilder(section: section, tags: tags, authors: authors, limit: limit, offset: offset).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -40,7 +40,7 @@ open class ImagesAPI {
      - parameter offset: (query) The initial index from which to return the results. (optional)
      - returns: RequestBuilder<InlineResponse200> 
      */
-    open class func imagesListWithRequestBuilder(section: String? = nil, tags: String? = nil, authors: String? = nil, limit: Int? = nil, offset: Int? = nil) -> RequestBuilder<InlineResponse200> {
+    open class func imagesListWithRequestBuilder(section: String? = nil, tags: String? = nil, authors: String? = nil, limit: Int? = nil, offset: Int? = nil) -> RequestBuilder<ContentListResponse> {
         let path = "/images/"
         let URLString = SCOAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -54,7 +54,7 @@ open class ImagesAPI {
             "offset": offset?.encodeToJSON()
         ])
 
-        let requestBuilder: RequestBuilder<InlineResponse200>.Type = SCOAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<ContentListResponse>.Type = SCOAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }

@@ -17,7 +17,7 @@ open class ProfilesAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func profilesList(limit: Int? = nil, offset: Int? = nil, apiResponseQueue: DispatchQueue = SCOAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InlineResponse2001?,_ error: Error?) -> Void)) {
+    open class func profilesList(limit: Int? = nil, offset: Int? = nil, apiResponseQueue: DispatchQueue = SCOAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ProfileListResponse?,_ error: Error?) -> Void)) {
         profilesListWithRequestBuilder(limit: limit, offset: offset).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -34,7 +34,7 @@ open class ProfilesAPI {
      - parameter offset: (query) The initial index from which to return the results. (optional)
      - returns: RequestBuilder<InlineResponse2001> 
      */
-    open class func profilesListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil) -> RequestBuilder<InlineResponse2001> {
+    open class func profilesListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil) -> RequestBuilder<ProfileListResponse> {
         let path = "/profiles/"
         let URLString = SCOAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -45,7 +45,7 @@ open class ProfilesAPI {
             "offset": offset?.encodeToJSON()
         ])
 
-        let requestBuilder: RequestBuilder<InlineResponse2001>.Type = SCOAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<ProfileListResponse>.Type = SCOAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }

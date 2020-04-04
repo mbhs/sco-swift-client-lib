@@ -17,7 +17,7 @@ open class TagsAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func tagsList(limit: Int? = nil, offset: Int? = nil, apiResponseQueue: DispatchQueue = SCOAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InlineResponse2003?,_ error: Error?) -> Void)) {
+    open class func tagsList(limit: Int? = nil, offset: Int? = nil, apiResponseQueue: DispatchQueue = SCOAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: TagListResponse?,_ error: Error?) -> Void)) {
         tagsListWithRequestBuilder(limit: limit, offset: offset).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -34,7 +34,7 @@ open class TagsAPI {
      - parameter offset: (query) The initial index from which to return the results. (optional)
      - returns: RequestBuilder<InlineResponse2003> 
      */
-    open class func tagsListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil) -> RequestBuilder<InlineResponse2003> {
+    open class func tagsListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil) -> RequestBuilder<TagListResponse> {
         let path = "/tags/"
         let URLString = SCOAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -45,7 +45,7 @@ open class TagsAPI {
             "offset": offset?.encodeToJSON()
         ])
 
-        let requestBuilder: RequestBuilder<InlineResponse2003>.Type = SCOAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<TagListResponse>.Type = SCOAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }

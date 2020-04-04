@@ -17,7 +17,7 @@ open class SectionsAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func sectionsList(limit: Int? = nil, offset: Int? = nil, apiResponseQueue: DispatchQueue = SCOAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: InlineResponse2002?,_ error: Error?) -> Void)) {
+    open class func sectionsList(limit: Int? = nil, offset: Int? = nil, apiResponseQueue: DispatchQueue = SCOAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: SectionListResponse?,_ error: Error?) -> Void)) {
         sectionsListWithRequestBuilder(limit: limit, offset: offset).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -34,7 +34,7 @@ open class SectionsAPI {
      - parameter offset: (query) The initial index from which to return the results. (optional)
      - returns: RequestBuilder<InlineResponse2002> 
      */
-    open class func sectionsListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil) -> RequestBuilder<InlineResponse2002> {
+    open class func sectionsListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil) -> RequestBuilder<SectionListResponse> {
         let path = "/sections/"
         let URLString = SCOAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -45,7 +45,7 @@ open class SectionsAPI {
             "offset": offset?.encodeToJSON()
         ])
 
-        let requestBuilder: RequestBuilder<InlineResponse2002>.Type = SCOAPIClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<SectionListResponse>.Type = SCOAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }

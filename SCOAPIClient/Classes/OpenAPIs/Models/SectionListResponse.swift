@@ -8,7 +8,7 @@
 import Foundation
 
 
-public struct InlineResponse2002: Codable {
+public struct SectionListResponse: Codable {
 
     public var count: Int
     public var next: String?
