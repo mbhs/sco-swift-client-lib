@@ -8,7 +8,7 @@
 import Foundation
 
 public class Content: Decodable {
-    public var url: String?
+    public var id: Int
     public var title: String
     public var description: String?
     public var tags: [Tag]
@@ -48,7 +48,7 @@ public class Content: Decodable {
 //    }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case url
+        case id
         case title
         case description
         case tags
