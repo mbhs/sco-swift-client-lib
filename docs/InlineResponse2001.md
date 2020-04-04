@@ -1,4 +1,4 @@
-# InlineResponse2001
+# ProfileListResponse
 
 ## Properties
 Name | Type | Description | Notes

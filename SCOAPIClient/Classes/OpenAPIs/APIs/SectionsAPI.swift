@@ -32,7 +32,7 @@ open class SectionsAPI {
      - GET /sections/
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
-     - returns: RequestBuilder<InlineResponse2002> 
+     - returns: RequestBuilder<SectionListResponse> 
      */
     open class func sectionsListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil) -> RequestBuilder<SectionListResponse> {
         let path = "/sections/"

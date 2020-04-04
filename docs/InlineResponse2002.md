@@ -1,4 +1,4 @@
-# InlineResponse2002
+# SectionListResponse
 
 ## Properties
 Name | Type | Description | Notes

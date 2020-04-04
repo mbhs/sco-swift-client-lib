@@ -1,4 +1,4 @@
-# InlineResponse200
+# ContentListResponse
 
 ## Properties
 Name | Type | Description | Notes

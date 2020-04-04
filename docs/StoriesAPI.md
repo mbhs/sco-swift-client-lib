@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **storiesList**
 ```swift
-    open class func storiesList(section: String? = nil, tags: String? = nil, authors: String? = nil, limit: Int? = nil, offset: Int? = nil, completion: @escaping (_ data: InlineResponse200?, _ error: Error?) -> Void)
+    open class func storiesList(section: String? = nil, tags: String? = nil, authors: String? = nil, limit: Int? = nil, offset: Int? = nil, completion: @escaping (_ data: ContentListResponse?, _ error: Error?) -> Void)
 ```
 
 
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**ContentListResponse**](ContentListResponse.md)
 
 ### Authorization
 

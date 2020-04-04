@@ -32,7 +32,7 @@ open class TagsAPI {
      - GET /tags/
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
-     - returns: RequestBuilder<InlineResponse2003> 
+     - returns: RequestBuilder<TagListResponse> 
      */
     open class func tagsListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil) -> RequestBuilder<TagListResponse> {
         let path = "/tags/"

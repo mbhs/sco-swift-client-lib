@@ -38,7 +38,7 @@ open class ContentAPI {
      - parameter authors: (query)  (optional)
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
-     - returns: RequestBuilder<InlineResponse200> 
+     - returns: RequestBuilder<ContentListResponse> 
      */
     open class func contentListWithRequestBuilder(section: String? = nil, tags: String? = nil, authors: String? = nil, limit: Int? = nil, offset: Int? = nil) -> RequestBuilder<ContentListResponse> {
         let path = "/content/"

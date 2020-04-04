@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **profilesList**
 ```swift
-    open class func profilesList(limit: Int? = nil, offset: Int? = nil, completion: @escaping (_ data: InlineResponse2001?, _ error: Error?) -> Void)
+    open class func profilesList(limit: Int? = nil, offset: Int? = nil, completion: @escaping (_ data: ProfileListResponse?, _ error: Error?) -> Void)
 ```
 
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**ProfileListResponse**](ProfileListResponse.md)
 
 ### Authorization
 
