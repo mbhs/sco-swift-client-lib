@@ -13,7 +13,7 @@ public struct Section: Codable {
     public var url: String?
     public var parent: String?
     public var title: String
-    public var subsections: [Any]
+    public var subsections: [Section]
 
     public init(url: String?, parent: String?, title: String, subsections: [Any]) {
         self.url = url
