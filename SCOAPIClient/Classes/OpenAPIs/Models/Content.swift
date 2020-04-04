@@ -19,7 +19,7 @@ public class Content: Decodable {
     public var section: Section
     public var views: Int
     public var embedOnly: Bool
-    public var linked: [Content]
+    public var linked: [Int]
     public var descriptor: String
     public var shareUrl: String
 
