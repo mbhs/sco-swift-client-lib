@@ -47,7 +47,7 @@ public class Content: Decodable {
 //        }
 //    }
 
-    private enum CodingKeys: String, CodingKey, CaseIterable {
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case url
         case title
         case description
