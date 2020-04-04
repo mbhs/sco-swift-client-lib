@@ -1,4 +1,4 @@
-# InlineResponse2003
+# TagListResponse
 
 ## Properties
 Name | Type | Description | Notes

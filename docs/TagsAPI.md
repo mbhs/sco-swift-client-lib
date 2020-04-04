@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **tagsList**
 ```swift
-    open class func tagsList(limit: Int? = nil, offset: Int? = nil, completion: @escaping (_ data: InlineResponse2003?, _ error: Error?) -> Void)
+    open class func tagsList(limit: Int? = nil, offset: Int? = nil, completion: @escaping (_ data: TagListResponse?, _ error: Error?) -> Void)
 ```
 
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**TagListResponse**](TagListResponse.md)
 
 ### Authorization
 
