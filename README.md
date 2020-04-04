@@ -47,7 +47,7 @@ Class | Method | HTTP request | Description
  - [ProfileListResponse](docs/ProfileListResponse.md)
  - [SectionListResponse](docs/SectionListResponse.md)
  - [TagListResponse](docs/TagListResponse.md)
- - [InlineResponse2004](docs/InlineResponse2004.md)
+ - [UserListResponse](docs/UserListResponse.md)
  - [Profile](docs/Profile.md)
  - [Section](docs/Section.md)
  - [Tag](docs/Tag.md)

@@ -32,7 +32,7 @@ open class UsersAPI {
      - GET /users/
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
-     - returns: RequestBuilder<InlineResponse2004> 
+     - returns: RequestBuilder<UserListResponse> 
      */
     open class func usersListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil) -> RequestBuilder<UserListResponse> {
         let path = "/users/"

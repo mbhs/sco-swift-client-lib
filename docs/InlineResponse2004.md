@@ -1,4 +1,4 @@
-# InlineResponse2004
+# UserListResponse
 
 ## Properties
 Name | Type | Description | Notes

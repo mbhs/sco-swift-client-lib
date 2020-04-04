@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **usersList**
 ```swift
-    open class func usersList(limit: Int? = nil, offset: Int? = nil, completion: @escaping (_ data: InlineResponse2004?, _ error: Error?) -> Void)
+    open class func usersList(limit: Int? = nil, offset: Int? = nil, completion: @escaping (_ data: UserListResponse?, _ error: Error?) -> Void)
 ```
 
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**UserListResponse**](UserListResponse.md)
 
 ### Authorization
 
