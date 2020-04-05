@@ -43,7 +43,8 @@ open class ContentAPI {
             }
             
             guard let data = data else {
-                completion(nil, NSError(domain: "unknown error", code: 500, userInfo: nil)) return
+                completion(nil, NSError(domain: "unknown error", code: 500, userInfo: nil))
+                return
             }
             
             do {
