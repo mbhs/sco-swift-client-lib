@@ -30,6 +30,33 @@ open class ContentAPI {
             }
         }
     }
+    
+    open class func contentList(url: URL, completion: @escaping ((_ data: ContentListResponse?,_ error: Error?) -> Void)) {
+        
+
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            SCOAPIClientAPI.apiResponseQueue.async {
+                if error != nil {
+                    completion(nil, error)
+                }
+            }
+            
+            guard let data = data else { completion(nil, NSError(domain: "unknown error", code: 500, userInfo: nil)) }
+            
+            do {
+                let contentList = JSONDecoder().decode(ContentListResponse.self, from: data)
+                SCOAPIClientAPI.apiResponseQueue.async {
+                    completion(contentList, nil)
+                }
+            } catch {
+                SCOAPIClientAPI.apiResponseQueue.async {
+                    completion(nil, NSError(domain: "unknown error", code: 500, userInfo: nil))
+                }
+            }
+        }
+
+        task.resume()
+    }
 
     /**
      - GET /content/
