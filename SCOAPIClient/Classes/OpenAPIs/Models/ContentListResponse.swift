@@ -30,6 +30,7 @@ public struct ContentListResponse: Decodable {
     enum ContentTypes: String, Decodable {
         case story = "Story"
         case photo = "Photo"
+        case gallery = "Gallery"
     }
     
     public init(from decoder: Decoder) throws {
