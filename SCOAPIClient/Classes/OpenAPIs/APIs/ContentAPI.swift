@@ -54,7 +54,7 @@ open class ContentAPI {
                 }
             } catch {
                 SCOAPIClientAPI.apiResponseQueue.async {
-                    completion(nil, NSError(domain: "unknown error", code: 500, userInfo: nil))
+                    completion(nil, NSError(domain: "unknown error", code: 502, userInfo: nil))
                 }
             }
         }
