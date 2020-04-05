@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **url** | **String** |  | [optional] [readonly] 
-**parent** | **String** |  | [optional] 
+**parent** | **Int** |  | [optional] 
 **title** | **String** |  | 
 **subsections** | **[Any]** |  | 
 
