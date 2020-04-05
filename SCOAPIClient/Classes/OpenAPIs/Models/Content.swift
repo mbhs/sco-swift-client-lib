@@ -12,8 +12,8 @@ public class Content: Decodable {
     public var title: String
     public var description: String?
     public var tags: [Tag]
-    public var created: String
-    public var modified: String
+    public var created: Date
+    public var modified: Date
     public var authors: [User]
     public var guestAuthors: String
     public var section: Section?
