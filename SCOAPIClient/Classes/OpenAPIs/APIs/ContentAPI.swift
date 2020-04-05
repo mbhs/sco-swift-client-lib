@@ -36,7 +36,7 @@ open class ContentAPI {
 
         let task = URLSession.shared.dataTask(with: url) {(data, response, theError) in
             SCOAPIClientAPI.apiResponseQueue.async {
-                if error != nil {
+                if theError != nil {
                     completion(nil, theError)
                     return
                 }
