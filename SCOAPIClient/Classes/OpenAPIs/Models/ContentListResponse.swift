@@ -29,7 +29,7 @@ public struct ContentListResponse: Decodable {
     
     enum ContentTypes: String, Decodable {
         case story = "Story"
-        case image = "Image"
+        case photo = "Photo"
     }
     
     public init(from decoder: Decoder) throws {
@@ -49,7 +49,7 @@ public struct ContentListResponse: Decodable {
                 print("found story")
                 results.append(try contentList.decode(Story.self))
                 dump(results)
-            case .image:
+            case .photo:
                 print("found image")
                 results.append(try contentList.decode(Image.self))
                 print("APPENDED")
