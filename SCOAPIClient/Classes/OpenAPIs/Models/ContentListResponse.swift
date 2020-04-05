@@ -54,6 +54,10 @@ public struct ContentListResponse: Decodable {
                 print("found image")
                 results.append(try contentList.decode(Image.self))
                 print("APPENDED")
+            case .gallery:
+                print("found gallery")
+                results.append(try contentList.decode(Gallery.self))
+                print("APPENDED")
             }
             print(contentListForType.isAtEnd)
             print("")
