@@ -48,7 +48,7 @@ public struct ContentListResponse: Decodable {
             case .story:
                 print("found story")
                 results.append(try contentList.decode(Story.self))
-                dump("APPENDED \(results)")
+                dump(results)
             case .image:
                 print("found image")
                 results.append(try contentList.decode(Image.self))
