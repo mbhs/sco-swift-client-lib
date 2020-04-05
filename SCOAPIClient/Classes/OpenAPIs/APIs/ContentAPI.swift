@@ -34,10 +34,10 @@ open class ContentAPI {
     open class func contentList(url: URL, completion: @escaping ((_ data: ContentListResponse?,_ error: Error?) -> Void)) {
         
 
-        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+        let task = URLSession.shared.dataTask(with: url) {(data, response, theError) in
             SCOAPIClientAPI.apiResponseQueue.async {
                 if error != nil {
-                    completion(nil, error)
+                    completion(nil, theError)
                     return
                 }
             }
@@ -54,7 +54,7 @@ open class ContentAPI {
                 }
             } catch {
                 SCOAPIClientAPI.apiResponseQueue.async {
-                    completion(nil, NSError(domain: "unknown error", code: 502, userInfo: nil))
+                    completion(nil, error)
                 }
             }
         }
