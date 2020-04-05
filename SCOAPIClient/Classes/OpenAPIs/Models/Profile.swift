@@ -16,9 +16,9 @@ public struct Profile: Codable {
     public var avatar: String?
     public var position: String
     public var graduationYear: Int?
-    public var user: String
+    public var user: Int
 
-    public init(id: Int, biography: String, avatar: String? = nil, position: String, graduationYear: Int? = nil, user: String) {
+    public init(id: Int, biography: String, avatar: String? = nil, position: String, graduationYear: Int? = nil, user: Int) {
         self.id = id
         self.biography = biography
         self.avatar = avatar
