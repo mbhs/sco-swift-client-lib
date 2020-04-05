@@ -10,13 +10,13 @@ import Foundation
 
 public struct Section: Codable {
 
-    public var url: String?
+    public var id: Int
     public var parent: String?
     public var title: String
     public var subsections: [Section]
 
-    public init(url: String? = nil, parent: String? = nil, title: String, subsections: [Section] = []) {
-        self.url = url
+    public init(id: Int, parent: String? = nil, title: String, subsections: [Section] = []) {
+        self.id = id
         self.parent = parent
         self.title = title
         self.subsections = subsections

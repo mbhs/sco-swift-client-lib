@@ -10,7 +10,7 @@ import Foundation
 
 public struct Profile: Codable {
 
-    public var url: String?
+    public var id: Int
     /** A short biography, often including likes and dislikes, accomplishments, etc. Should be several sentences minimum. */
     public var biography: String
     public var avatar: String?
@@ -18,8 +18,8 @@ public struct Profile: Codable {
     public var graduationYear: Int?
     public var user: String
 
-    public init(url: String? = nil, biography: String, avatar: String? = nil, position: String, graduationYear: Int? = nil, user: String) {
-        self.url = url
+    public init(id: Int, biography: String, avatar: String? = nil, position: String, graduationYear: Int? = nil, user: String) {
+        self.id = id
         self.biography = biography
         self.avatar = avatar
         self.position = position
@@ -28,7 +28,7 @@ public struct Profile: Codable {
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable { 
-        case url
+        case id
         case biography
         case avatar
         case position

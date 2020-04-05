@@ -10,11 +10,11 @@ import Foundation
 
 public struct Tag: Codable {
 
-    public var url: String?
+    public var id: Int
     public var name: String
 
-    public init(url: String? = nil, name: String) {
-        self.url = url
+    public init(id: Int, name: String) {
+        self.id = id
         self.name = name
     }
 

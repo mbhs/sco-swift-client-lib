@@ -23,8 +23,8 @@ public class Content: Decodable {
     public var descriptor: String
     public var shareUrl: String
 
-//    public init(url: String? = nil, title: String, description: String? = nil, tags: [Tag], created: Date, modified: Date, user: String) {
-//        self.url = url
+//    public init(id: Int, title: String, description: String? = nil, tags: [Tag], created: Date, modified: Date, user: String) {
+//        self.id = id
 //        self.title = title
 //        self.description = description
 //        self.tags = tags

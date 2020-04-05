@@ -10,12 +10,12 @@ import Foundation
 
 public struct User: Codable {
 
-    public var url: String?
+    public var id: Int
     public var name: String
     public var profile: Profile
 
-    public init(url: String? = nil, name: String, profile: Profile) {
-        self.url = url
+    public init(id: Int, name: String, profile: Profile) {
+        self.id = id
         self.name = name
         self.profile = profile
     }
