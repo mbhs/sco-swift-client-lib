@@ -38,10 +38,13 @@ open class ContentAPI {
             SCOAPIClientAPI.apiResponseQueue.async {
                 if error != nil {
                     completion(nil, error)
+                    return
                 }
             }
             
-            guard let data = data else { completion(nil, NSError(domain: "unknown error", code: 500, userInfo: nil)) }
+            guard let data = data else {
+                completion(nil, NSError(domain: "unknown error", code: 500, userInfo: nil)) return
+            }
             
             do {
                 let contentList = try JSONDecoder().decode(ContentListResponse.self, from: data)
