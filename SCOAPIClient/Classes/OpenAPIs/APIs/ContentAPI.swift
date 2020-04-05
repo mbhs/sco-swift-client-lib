@@ -47,6 +47,7 @@ open class ContentAPI {
                 return
             }
             
+            print("DATA")
             dump(data)
             do {
                 let contentList = try JSONDecoder().decode(ContentListResponse.self, from: data)
