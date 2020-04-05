@@ -49,6 +49,7 @@ open class ContentAPI {
             
             print("DATA")
             dump(data)
+            dump(response)
             do {
                 let contentList = try JSONDecoder().decode(ContentListResponse.self, from: data)
                 SCOAPIClientAPI.apiResponseQueue.async {
